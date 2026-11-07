@@ -1,0 +1,63 @@
+# =========================================================================
+# GITIGNORE - PT. POLO SPORT INDONESIA (PICKUP PAKET LOGISTICS)
+# =========================================================================
+
+# --- Environment & Credentials (Security First) ---
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.cert
+
+# --- Storage, Uploads & Temporary Media (Privacy & Clean Repo) ---
+public_html/storage/*
+!public_html/storage/.gitkeep
+public_html/storage/foto_instan/*
+!public_html/storage/foto_instan/.gitkeep
+public_html/storage/hasil_ekspedisi/*
+!public_html/storage/hasil_ekspedisi/.gitkeep
+public_html/public/storage/*
+!public_html/public/storage/.gitkeep
+
+secure_app/storage/uploads/*
+!secure_app/storage/uploads/.gitkeep
+secure_app/storage/temp/*
+!secure_app/storage/temp/.gitkeep
+secure_app/public/storage/*
+!secure_app/public/storage/.gitkeep
+
+# --- Dependency Managers & Vendor Folders ---
+/vendor/
+/node_modules/
+
+# --- Logs & Caches ---
+*.log
+*.tmp
+*.temp
+error_log
+access_log
+
+# --- OS Specific Files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# --- IDE & Text Editor Files ---
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- Scratch & Developer Debug Files ---
+public_html/scratch/
+public_html/test.php

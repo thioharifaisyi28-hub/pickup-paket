@@ -1,0 +1,459 @@
+/**
+ * compact-scale.css
+ * Global Compact UI/UX Scaling System (Proportional 80% Density at 100% Browser Zoom)
+ * Sistem Informasi Pick-Up Paket PT. Polo Sport Indonesia
+ */
+
+/* ==========================================================================
+   1. GLOBAL ROOT SCALING (80% / ~12.8px Base) & BOOTSTRAP 5 HARMONIZATION
+   ========================================================================== */
+:root {
+    --sidebar-width: 215px;
+    --sidebar-collapsed-width: 58px;
+    --topbar-height: 52px;
+
+    /* Harmonisasi variabel Bootstrap 5 agar proporsional di seluruh komponen */
+    --bs-body-font-size: 1rem;
+    --bs-body-line-height: 1.5;
+    --bs-border-radius: 0.5rem;
+    --bs-border-radius-sm: 0.375rem;
+    --bs-border-radius-lg: 0.75rem;
+    --bs-border-radius-xl: 0.875rem;
+    --bs-border-radius-2xl: 1rem;
+}
+
+html {
+    font-size: 80%; /* 1rem = 12.8px (ekuivalen zoom 80% secara native pada zoom 100%) */
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+}
+
+/* Tipografi Heading Global Lebih Proporsional */
+h1, .h1 { font-size: 1.55rem; }
+h2, .h2 { font-size: 1.35rem; }
+h3, .h3 { font-size: 1.25rem; }
+h4, .h4 { font-size: 1.15rem; }
+h5, .h5 { font-size: 1.05rem; }
+h6, .h6 { font-size: 0.95rem; }
+
+/* ==========================================================================
+   2. SIDEBAR RAMPING & BEBAS SCROLLBAR VERTIKAL DI LAPTOP STANDAR
+   ========================================================================== */
+@media (min-width: 769px) {
+    .sidebar {
+        width: var(--sidebar-width);
+    }
+
+    .sidebar.collapsed,
+    html.sidebar-is-collapsed .sidebar {
+        width: var(--sidebar-collapsed-width);
+    }
+
+    .main-wrapper {
+        margin-left: var(--sidebar-width);
+        max-width: calc(100% - var(--sidebar-width));
+    }
+
+    .main-wrapper.collapsed,
+    html.sidebar-is-collapsed .main-wrapper {
+        margin-left: var(--sidebar-collapsed-width) !important;
+        max-width: calc(100% - var(--sidebar-collapsed-width)) !important;
+    }
+
+    .sidebar-header {
+        height: var(--topbar-height) !important;
+        padding: 0 1rem !important;
+    }
+
+    .sidebar-logo {
+        max-width: 108px;
+        max-height: 28px;
+    }
+
+    .sidebar.collapsed .sidebar-header,
+    html.sidebar-is-collapsed .sidebar-header {
+        height: var(--topbar-height) !important;
+        padding: 0 !important;
+    }
+
+    .sidebar.collapsed .sidebar-logo,
+    html.sidebar-is-collapsed .sidebar-logo {
+        max-width: 34px !important;
+        max-height: 34px !important;
+    }
+
+    .sidebar-menu {
+        padding: 0.55rem 0.5rem !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .sidebar .menu-label {
+        padding: 0 0.75rem;
+        font-size: 9px;
+        letter-spacing: 1.15px;
+        margin-top: 0.65rem;
+        margin-bottom: 0.25rem;
+        line-height: 1.2;
+    }
+
+    .sidebar .section-label {
+        margin-top: 0.75rem;
+    }
+
+    .sidebar .menu-item {
+        padding: 6.5px 10px;
+        margin: 2px 4px;
+        gap: 10px;
+        border-radius: 8px;
+        font-size: 11.5px;
+        line-height: 1.35;
+    }
+
+    .sidebar .menu-item i,
+    .sidebar .menu-item svg {
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+    }
+
+    .sidebar.collapsed .menu-item,
+    html.sidebar-is-collapsed .sidebar .menu-item {
+        margin: 3px 8px;
+        padding: 8px 0;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .sidebar-copyright {
+        padding: 0.65rem 0.65rem !important;
+        font-size: 9.5px !important;
+        line-height: 1.45 !important;
+    }
+}
+
+/* ==========================================================================
+   3. TOPBAR / NAVBAR MINIMALIS (52px)
+   ========================================================================== */
+.topbar {
+    height: var(--topbar-height);
+    min-height: var(--topbar-height);
+    padding: 0 1.25rem;
+}
+
+.topbar-left,
+.topbar-right {
+    gap: 0.85rem;
+}
+
+.toggle-sidebar,
+.action-btn {
+    padding: 0.35rem;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-sidebar svg,
+.action-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+.badge-dot {
+    top: 4px;
+    right: 4px;
+    width: 7px;
+    height: 7px;
+    border-width: 1.5px;
+}
+
+.dropdown-trigger {
+    gap: 0.55rem;
+    padding: 0.28rem 0.5rem;
+    border-radius: 9px;
+}
+
+.welcome-text {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.avatar-small {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    font-size: 11.5px;
+}
+
+.dropdown-trigger svg {
+    width: 14px;
+    height: 14px;
+}
+
+.user-dropdown .dropdown-menu {
+    width: 155px;
+    padding: 0.35rem;
+    border-radius: 10px;
+}
+
+.user-dropdown .dropdown-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 12px;
+    gap: 0.55rem;
+    border-radius: 7px;
+}
+
+.user-dropdown .dropdown-item svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* ==========================================================================
+   4. AREA KONTEN UTAMA, PAGE HEADER & CARDS (PADAT & TANPA DOUBLE PADDING)
+   ========================================================================== */
+.content {
+    padding: 1rem 1.25rem;
+}
+
+.page-header {
+    margin-bottom: 0.9rem;
+    gap: 0.75rem;
+}
+
+.page-title {
+    font-size: 1.28rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.card {
+    border-radius: 12px;
+    padding: 0.95rem 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Hilangkan double-padding pada card yang sudah memiliki card-header / card-body */
+.card:has(> .card-header),
+.card:has(> .card-body) {
+    padding: 0;
+}
+
+.card-header {
+    padding: 0.8rem 1.15rem;
+    margin-bottom: 0;
+}
+
+/* Jika card tidak memakai .card-body tetapi langsung isi setelah .card-header */
+.card > .card-header + form,
+.card > .card-header + div:not(.card-body):not(.table-responsive):not(.quick-stats-bar) {
+    padding: 1rem 1.15rem;
+}
+
+.card-body {
+    padding: 1.05rem 1.2rem;
+}
+
+.card-footer {
+    padding: 0.75rem 1.15rem;
+}
+
+/* Quick Stats Bar (Halaman Paket / Instan) */
+.quick-stats-bar {
+    padding: 0.55rem 1.15rem !important;
+}
+
+/* Custom Tabs (Halaman Ekspedisi) */
+.custom-tabs .tab-item {
+    padding: 0.45rem 0.95rem;
+    font-size: 11.5px;
+}
+
+/* ==========================================================================
+   5. FORM INPUTS, SELECT DROPDOWNS & BUTTONS GLOBAL
+   ========================================================================== */
+.form-group {
+    margin-bottom: 0.9rem;
+}
+
+.form-label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+.form-control,
+.form-select {
+    font-size: 12.5px;
+    min-height: 35px;
+    height: 35px;
+    padding: 0.38rem 0.75rem;
+    border-radius: 8px;
+}
+
+.form-select {
+    padding-right: 2.1rem;
+}
+
+textarea.form-control {
+    height: auto;
+    min-height: 80px;
+}
+
+.input-group-text {
+    font-size: 12.5px;
+    padding: 0.35rem 0.7rem;
+}
+
+/* Buttons */
+.btn {
+    font-size: 12px;
+    padding: 0.42rem 0.88rem;
+    border-radius: 8px;
+    gap: 0.4rem;
+    line-height: 1.35;
+}
+
+.btn svg,
+.btn i {
+    width: 14px;
+    height: 14px;
+}
+
+.btn-sm {
+    font-size: 11px;
+    padding: 0.28rem 0.65rem;
+    border-radius: 7px;
+}
+
+.btn-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+}
+
+/* ==========================================================================
+   6. TABEL, BADGES, PAGINATION & MODAL (SEMUA FITUR)
+   ========================================================================== */
+.table th,
+.table td {
+    padding: 0.55rem 0.55rem;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.table thead th {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    padding: 0.62rem 0.55rem;
+}
+
+/* Tabel Antrean Paket (Instan) */
+.table-custom.paket-table thead th {
+    font-size: 10.5px;
+    padding: 0.62rem 0.45rem;
+    letter-spacing: 0.45px;
+}
+
+.table-custom.paket-table tbody td {
+    font-size: 11.5px;
+    padding: 0.5rem 0.45rem;
+}
+
+.table-custom.paket-table .status-badge {
+    padding: 0.18rem 0.6rem;
+    font-size: 10px;
+}
+
+.table-custom.paket-table .avatar-sm {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 11.5px !important;
+}
+
+/* Tabel Numbering Paket */
+.table-premium thead th {
+    font-size: 10.5px !important;
+    padding: 0.65rem 1rem !important;
+}
+
+.table-premium tbody td {
+    font-size: 12px !important;
+    padding: 0.58rem 1rem !important;
+}
+
+/* Tabel Ekspedisi */
+.ekspedisi-table thead th {
+    font-size: 10.5px !important;
+    padding: 0.62rem 0.6rem !important;
+}
+
+.ekspedisi-table tbody td {
+    font-size: 11.5px !important;
+    padding: 0.55rem 0.6rem !important;
+}
+
+/* Badges */
+.badge {
+    font-size: 10.5px;
+    padding: 0.28rem 0.65rem;
+}
+
+/* Pagination */
+.page-item .page-link,
+.pagination-btn {
+    min-width: 31px !important;
+    height: 31px !important;
+    padding: 0 9px !important;
+    font-size: 12px !important;
+    border-radius: 8px !important;
+}
+
+/* Modals & SweetAlert2 (Fix Bootstrap 5 .modal-dialog pointer-events:none & flex footer clipping) */
+.modal-overlay .modal-dialog {
+    pointer-events: auto !important;
+    max-height: 92vh;
+}
+
+.modal-overlay .modal-dialog > form {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.modal-overlay .modal-header {
+    padding: 0.85rem 1.2rem;
+    flex-shrink: 0;
+}
+
+.modal-overlay .modal-body {
+    padding: 1rem 1.2rem;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.modal-overlay .modal-footer {
+    padding: 0.75rem 1.2rem;
+    flex-shrink: 0;
+}
+
+.swal2-container {
+    z-index: 9999 !important;
+}
+
+.swal2-popup {
+    font-size: 0.92rem !important;
+    border-radius: 16px !important;
+    padding: 1.25rem !important;
+}
+
